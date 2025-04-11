@@ -1,0 +1,69 @@
+### **Product Requirements Document (PRD)**  
+**Project Name:** Personal Portfolio Website  
+**Owner:** [Your Name]  
+**Goal:** Showcase projects, attract job opportunities, and build a personal brand targeting potential employers/recruiters.
+
+---
+
+### **1. Target Audience**
+- Potential employers and recruiters in the tech industry
+
+---
+
+### **2. Key Sections & Pages**
+- **Home / Landing Page**  
+  - Brief intro
+  - Navigation to all key sections
+  - Smooth animations and transitions
+
+- **About Me**  
+  - Short professional bio (background, passions, career goals)  
+  - Tech stack overview  
+  - Optional personal photo or illustrative graphic  
+  - Clean, authentic, and professional tone  
+  - *Optional:* Fun facts / quick highlights section
+
+- **Projects / Portfolio**  
+  - Showcasing 5–6 featured projects  
+  - Each includes: Title, Description, Tech Stack, Image, GitHub Link  
+  - Opens in a popup/modal (not a separate page)
+
+- **Skills / Tech Stack**  
+  - Tech icons with tooltips  
+  - Categorized or grouped neatly  
+  - Clicking an icon filters/display projects using that stack  
+  - No soft skills included
+
+- **Resume / CV**  
+  - Embedded resume preview (scrollable view)  
+  - Download button for PDF resume
+
+- **Contact**  
+  - Functional contact form (sends email on submit)  
+  - Display contact links: LinkedIn, GitHub, Email
+
+---
+
+### **3. Features & Functionality**
+- Downloadable resume  
+- Smooth animations & page transitions (Framer Motion)  
+- Project filtering by tech stack  
+- Toggleable Dark Mode  
+- Responsive design across devices  
+- Optimized for performance and SEO
+
+---
+
+### **4. Tech Stack**
+- **Framework:** Next.js (React-based)
+- **Styling:** Tailwind CSS  
+- **UI Components:** shadcn/ui  
+- **Animations:** Framer Motion  
+- **Form Handling:** EmailJS or Next.js API route (for contact form)
+
+---
+
+### **5. Design Aesthetic**
+- Modern & minimalistic  
+- Professional color scheme with light/dark toggle  
+- Clean typography and generous spacing
