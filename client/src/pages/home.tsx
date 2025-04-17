@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import Hero from "@/components/sections/hero";
+import { User, FolderKanban, Code2 as CodeSquare, Mail as MailIcon } from "lucide-react";
 
 export default function Home() {
   const [, navigate] = useLocation();
@@ -31,20 +32,43 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: "About Me", description: "Learn about my background and expertise", path: "/about" },
-            { title: "Projects", description: "See my previous work and accomplishments", path: "/projects" },
-            { title: "Skills", description: "Discover my technical skillset", path: "/skills" },
-            { title: "Contact", description: "Get in touch for opportunities", path: "/contact" }
+            { 
+              title: "About Me", 
+              description: "Learn about my background and expertise", 
+              path: "/about", 
+              icon: <User className="h-10 w-10 mb-4 text-primary" />
+            },
+            { 
+              title: "Projects", 
+              description: "See my previous work and accomplishments", 
+              path: "/projects", 
+              icon: <FolderKanban className="h-10 w-10 mb-4 text-primary" />
+            },
+            { 
+              title: "Skills", 
+              description: "Discover my technical skillset", 
+              path: "/skills", 
+              icon: <CodeSquare className="h-10 w-10 mb-4 text-primary" />
+            },
+            { 
+              title: "Contact", 
+              description: "Get in touch for opportunities", 
+              path: "/contact", 
+              icon: <MailIcon className="h-10 w-10 mb-4 text-primary" />
+            }
           ].map((item, index) => (
             <motion.div 
               key={item.title}
-              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-all cursor-pointer"
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 hover:shadow-lg transition-all cursor-pointer text-center"
               whileHover={{ y: -5 }}
               onClick={() => navigate(item.path)}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
             >
+              <div className="flex justify-center mb-2">
+                {item.icon}
+              </div>
               <h3 className="text-xl font-semibold mb-2 text-primary">{item.title}</h3>
               <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
             </motion.div>
