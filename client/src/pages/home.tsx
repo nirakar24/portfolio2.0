@@ -1,7 +1,6 @@
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import Hero from "@/components/sections/hero";
-import { User, FolderKanban, Code2 as CodeSquare, Mail as MailIcon } from "lucide-react";
 
 export default function Home() {
   const [, navigate] = useLocation();
@@ -36,25 +35,25 @@ export default function Home() {
               title: "About Me", 
               description: "Learn about my background and expertise", 
               path: "/about", 
-              icon: <User className="h-10 w-10 mb-4 text-primary" />
+              iconClass: "user"
             },
             { 
               title: "Projects", 
               description: "See my previous work and accomplishments", 
               path: "/projects", 
-              icon: <FolderKanban className="h-10 w-10 mb-4 text-primary" />
+              iconClass: "folder"
             },
             { 
               title: "Skills", 
               description: "Discover my technical skillset", 
               path: "/skills", 
-              icon: <CodeSquare className="h-10 w-10 mb-4 text-primary" />
+              iconClass: "code"
             },
             { 
               title: "Contact", 
               description: "Get in touch for opportunities", 
               path: "/contact", 
-              icon: <MailIcon className="h-10 w-10 mb-4 text-primary" />
+              iconClass: "mail"
             }
           ].map((item, index) => (
             <motion.div 
@@ -66,8 +65,10 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1), duration: 0.5 }}
             >
-              <div className="flex justify-center mb-2">
-                {item.icon}
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                  <i className={`text-primary text-2xl fas fa-${item.iconClass}`}></i>
+                </div>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-primary">{item.title}</h3>
               <p className="text-gray-600 dark:text-gray-300">{item.description}</p>

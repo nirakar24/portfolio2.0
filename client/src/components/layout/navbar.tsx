@@ -1,16 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { 
-  Menu, 
-  X, 
-  Home, 
-  User, 
-  FolderKanban, 
-  Code2 as CodeSquare, 
-  FileText, 
-  Mail as MailIcon 
-} from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "../ui/theme-toggle";
 import { Button } from "../ui/button";
 
@@ -27,12 +18,12 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: "Home", href: "/", icon: <Home className="h-5 w-5 text-primary" /> },
-    { label: "About", href: "/about", icon: <User className="h-5 w-5 text-primary" /> },
-    { label: "Projects", href: "/projects", icon: <FolderKanban className="h-5 w-5 text-primary" /> },
-    { label: "Skills", href: "/skills", icon: <CodeSquare className="h-5 w-5 text-primary" /> },
-    { label: "Resume", href: "/resume", icon: <FileText className="h-5 w-5 text-primary" /> },
-    { label: "Contact", href: "/contact", icon: <MailIcon className="h-5 w-5 text-primary" /> },
+    { label: "Home", href: "/", iconClass: "home" },
+    { label: "About", href: "/about", iconClass: "user" },
+    { label: "Projects", href: "/projects", iconClass: "folder" },
+    { label: "Skills", href: "/skills", iconClass: "code" },
+    { label: "Resume", href: "/resume", iconClass: "file-alt" },
+    { label: "Contact", href: "/contact", iconClass: "envelope" },
   ];
 
   return (
@@ -62,7 +53,7 @@ export default function Navbar() {
               href={item.href}
               className="text-sm font-medium hover:text-primary transition-colors flex items-center"
             >
-              {item.icon}
+              <i className={`fas fa-${item.iconClass} text-primary mr-2`}></i>
               {item.label}
             </Link>
           ))}
@@ -104,7 +95,7 @@ export default function Navbar() {
                       onClick={() => toggleMobileMenu()}
                     >
                       <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                        {item.icon}
+                        <i className={`fas fa-${item.iconClass} text-primary`}></i>
                       </div>
                       <span>{item.label}</span>
                     </Link>
