@@ -18,12 +18,12 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Resume", href: "#resume" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/projects" },
+    { label: "Skills", href: "/skills" },
+    { label: "Resume", href: "/resume" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -48,20 +48,13 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {navItems.map(item => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               className="text-sm font-medium hover:text-primary transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.querySelector(item.href);
-                if (element) {
-                  element.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <ThemeToggle className="p-2 rounded-full bg-gray-200 dark:bg-gray-800" />
         </div>
@@ -87,21 +80,14 @@ export default function Navbar() {
               </Button>
               
               {navItems.map(item => (
-                <a
+                <Link
                   key={item.label}
                   href={item.href}
                   className="hover:text-primary transition-colors"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const element = document.querySelector(item.href);
-                    if (element) {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                      toggleMobileMenu();
-                    }
-                  }}
+                  onClick={() => toggleMobileMenu()}
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               
               <ThemeToggle className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 mt-4" />

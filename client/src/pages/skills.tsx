@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Skills from "@/components/sections/skills";
-import PageHero from "@/components/sections/page-hero";
+import PageHero from "../components/sections/page-hero";
 import { useLocation } from "wouter";
 
 export default function SkillsPage() {

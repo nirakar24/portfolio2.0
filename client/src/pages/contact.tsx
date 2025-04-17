@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Contact from "@/components/sections/contact";
-import PageHero from "@/components/sections/page-hero";
+import PageHero from "../components/sections/page-hero";
 
 export default function ContactPage() {
   return (

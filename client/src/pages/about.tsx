@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import About from "@/components/sections/about";
-import PageHero from "@/components/sections/page-hero";
+import PageHero from "../components/sections/page-hero";
 
 export default function AboutPage() {
   return (
