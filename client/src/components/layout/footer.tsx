@@ -1,3 +1,5 @@
+import { Link } from "wouter";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   
@@ -11,46 +13,36 @@ export default function Footer() {
             </p>
           </div>
           <div className="flex items-center space-x-4">
-            <a 
-              href="#home" 
+            <Link 
+              href="/" 
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
             >
               Home
-            </a>
-            <a 
-              href="#about" 
+            </Link>
+            <Link 
+              href="/about" 
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               About
-            </a>
-            <a 
-              href="#projects" 
+            </Link>
+            <Link 
+              href="/projects" 
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-              }}
             >
               Projects
-            </a>
-            <a 
-              href="#contact" 
+            </Link>
+            <Link 
+              href="/resume" 
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
+            >
+              Resume
+            </Link>
+            <Link 
+              href="/contact" 
+              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
             >
               Contact
-            </a>
+            </Link>
           </div>
         </div>
       </div>

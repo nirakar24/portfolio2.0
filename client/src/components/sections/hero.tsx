@@ -137,7 +137,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
           className="mb-12"
         >
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 flex flex-wrap justify-center items-center h-[2em]"
+            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 whitespace-nowrap"
             variants={nameVariants}
             initial="hidden"
             animate="visible"

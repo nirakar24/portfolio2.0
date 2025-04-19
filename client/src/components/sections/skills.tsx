@@ -33,15 +33,15 @@ export default function Skills({ onSkillClick }: SkillsProps) {
   };
 
   return (
-    <div className="py-16 bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
-      <div className="container mx-auto px-6">
+    <div className="py-16 bg-gray-100 dark:bg-gray-800 transition-colors duration-300 overflow-x-hidden w-full">
+      <div className="container mx-auto px-4 sm:px-6">
         <h2 className="text-3xl font-bold text-center mb-4">Skills & Technologies</h2>
         <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
           I work with a variety of technologies and frameworks to build modern web applications
         </p>
         
         {/* Skills Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {/* Frontend */}
           <motion.div
             variants={cardVariants}

@@ -1,14 +1,25 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { projects, allTags } from "@/data/projects";
+import { useProjectModal } from "@/hooks/use-project-modal";
+
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  githubUrl?: string;  // Optional GitHub URL
+  demoUrl?: string;    // Optional demo URL
+}
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const { openModal } = useProjectModal();
   
   const filteredProjects = activeFilter === "all" 
     ? projects 
@@ -52,24 +63,24 @@ export default function Projects() {
 
   return (
     <motion.div 
-      className="py-16 container mx-auto px-6"
+      className="py-12 sm:py-16 container mx-auto px-4 sm:px-6 overflow-x-hidden"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <motion.div 
-        className="mb-12"
+        className="mb-8 sm:mb-12"
         variants={itemVariants}
       >
-        <h2 className="text-3xl font-bold text-center mb-4">My Projects</h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-3 sm:mb-4">My Projects</h2>
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-2xl mx-auto text-sm sm:text-base">
           A collection of my recent work that showcases my skills and experience
         </p>
       </motion.div>
       
       {/* Project Filters */}
       <motion.div 
-        className="mb-10 flex flex-wrap justify-center gap-2"
+        className="mb-6 sm:mb-10 flex flex-wrap justify-center gap-1.5 sm:gap-2"
         variants={itemVariants}
       >
         <motion.div 
@@ -78,7 +89,7 @@ export default function Projects() {
         >
           <Button
             variant={activeFilter === "all" ? "default" : "outline"}
-            className="px-4 py-2"
+            className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm"
             onClick={() => setActiveFilter("all")}
           >
             All
@@ -93,7 +104,7 @@ export default function Projects() {
           >
             <Button
               variant={activeFilter === tag ? "default" : "outline"}
-              className="px-4 py-2"
+              className="px-3 py-1.5 sm:px-4 sm:py-2 text-sm"
               onClick={() => setActiveFilter(tag)}
             >
               {tag}
@@ -104,85 +115,78 @@ export default function Projects() {
       
       {/* Projects Grid */}
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
         variants={containerVariants}
       >
         <AnimatePresence>
           {filteredProjects.map((project, index) => (
             <motion.div
-              key={project.id}
-              layout
-              initial="hidden"
-              animate="visible"
-              exit={{ opacity: 0, scale: 0.9 }}
-              whileHover="hover"
-              onHoverStart={() => setHoveredCard(project.id)}
+              key={project.title}
+              variants={itemVariants}
+              onHoverStart={() => setHoveredCard(index)}
               onHoverEnd={() => setHoveredCard(null)}
-              custom={index}
-              variants={cardVariants}
-              className="group"
+              className="relative group"
             >
-              <Card className="overflow-hidden h-full transition-all duration-300">
-                <div className="relative">
-                  <div className="w-full h-48 bg-gray-200 dark:bg-gray-700 flex items-center justify-center overflow-hidden">
-                    <motion.div
-                      className="w-full h-full bg-cover bg-center"
-                      style={{ backgroundImage: `url(${project.image})` }}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.3 }}
+              <Card className="h-full overflow-hidden border dark:border-gray-800 transition-all duration-300 hover:shadow-lg dark:hover:shadow-gray-800/30">
+                <CardContent className="p-0">
+                  <div className="relative aspect-video overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
-                  </div>
-                  <motion.div 
-                    className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 flex items-center justify-center"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      whileHover={{ y: 0, opacity: 1 }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <Button
-                        onClick={() => window.dispatchEvent(new CustomEvent('open-project-modal', { detail: project }))}
+                        variant="secondary"
+                        size="sm"
+                        className="flex items-center gap-2"
+                        onClick={() => openModal(project)}
                       >
+                        <Eye className="w-4 h-4" />
                         View Details
                       </Button>
-                    </motion.div>
-                  </motion.div>
-                </div>
-                
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{project.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map(tag => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
+                    </div>
                   </div>
-                  
-                  <div className="flex justify-between items-center">
-                    <motion.a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary/80 flex items-center gap-1"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <Github className="h-4 w-4" />
-                      GitHub
-                    </motion.a>
-                    <motion.a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 flex items-center gap-1"
-                      whileHover={{ scale: 1.1 }}
-                    >
-                      <ExternalLink className="h-4 w-4" />
-                      Live Demo
-                    </motion.a>
+                  <div className="p-4 sm:p-5">
+                    <h3 className="text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-3 line-clamp-2">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {project.tags.map(tag => (
+                        <Badge
+                          key={tag}
+                          variant="secondary"
+                          className="text-xs px-2 py-0.5"
+                        >
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
+                        >
+                          <Github className="h-4 w-4" />
+                          Source Code
+                        </a>
+                      )}
+                      {project.demoUrl && (
+                        <a
+                          href={project.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -194,12 +198,12 @@ export default function Projects() {
       {/* Show if no projects match filter */}
       {filteredProjects.length === 0 && (
         <motion.div 
-          className="text-center py-16"
+          className="text-center py-12 sm:py-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <p className="text-lg text-gray-500 dark:text-gray-400">No projects match the selected filter.</p>
+          <p className="text-base sm:text-lg text-gray-500 dark:text-gray-400">No projects match the selected filter.</p>
           <Button 
             className="mt-4"
             onClick={() => setActiveFilter("all")}

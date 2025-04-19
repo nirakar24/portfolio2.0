@@ -29,20 +29,22 @@ export default function Resume() {
         <Card className="shadow-lg">
           {/* Resume Header */}
           <CardHeader className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600 p-6">
-            <div className="flex justify-between items-center mb-4">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
               <h3 className="text-xl font-bold">{resumeData.name} - {resumeData.title}</h3>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-2">
                 <Button 
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 text-sm"
                   onClick={handleDownload}
                   variant="default"
+                  size="sm"
                 >
                   <Download className="h-4 w-4" />
                   Download PDF
                 </Button>
                 <Button
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 text-sm"
                   variant="outline"
+                  size="sm"
                   onClick={() => window.open("https://docs.google.com/document/d/1UX-PhHQLdQh0S10-ZUknPgfI1g7pBMfH5QRi2zZZF0E/edit?usp=sharing", "_blank")}
                 >
                   View in Google Docs
