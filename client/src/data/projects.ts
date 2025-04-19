@@ -16,111 +16,105 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-commerce Dashboard",
-    description: "A comprehensive admin dashboard for managing online store operations.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "Redux"],
-    githubUrl: "https://github.com/",
+    title: "InsightSync 2.0",
+    description: "A fully functional Customer Relationship Management (CRM) system tailored for Indian businesses with smart data visualization and churn prediction features.",
+    image: "/InsightSync_output.png",
+    tags: ["React", "TailwindCSS", "Chart.js", "JSON"],
+    githubUrl: "https://github.com/nirakar24/InsightSync2.0",
     demoUrl: "#",
     features: [
-      "Real-time sales analytics",
-      "Inventory management system",
-      "Order processing workflows",
-      "Customer segmentation",
-      "Responsive admin interface"
+      "Performance Graphs per product using Chart.js",
+      "Churn Prediction Module to identify at-risk customers",
+      "Dynamic dashboards for customer behavior & retention metrics",
+      "All data fetched from a centralized dummydata.json file"
     ],
-    challenges: "Implementing real-time data synchronization across multiple admin users while maintaining consistent state was particularly challenging. Used WebSockets and Redux middleware to solve this.",
-    techStack: ["React", "Node.js", "Redux", "Express", "MongoDB", "WebSockets", "Chart.js"]
+    challenges: "Creating an end-to-end frontend logic with visual insights and real business applications while maintaining performance and user experience.",
+    techStack: ["React", "TailwindCSS", "Chart.js", "JSON"]
   },
   {
     id: "2",
-    title: "Task Management App",
-    description: "A collaborative tool for teams to manage projects and tasks efficiently.",
-    image: "https://images.unsplash.com/photo-1555421689-3f034debb7a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "TypeScript", "Prisma"],
-    githubUrl: "https://github.com/",
+    title: "Flixio – Movie Recommendation System",
+    description: "A content-based recommendation engine for movie suggestions using cosine similarity.",
+    image: "/Flixio_output.png",
+    tags: ["Python", "Pandas", "Scikit-learn", "Flask"],
+    githubUrl: "https://github.com/nirakar24/Flixio_Recommendation_System",
     demoUrl: "#",
     features: [
-      "Kanban board interface",
-      "Task assignment and tracking",
-      "Project timeline visualization",
-      "Comment and collaboration tools",
-      "File attachments"
+      "TF-IDF Vectorization for feature extraction",
+      "Cosine similarity for determining user preferences",
+      "Simple Flask web interface for user interaction",
+      "Returns movies based on textual metadata similarity"
     ],
-    challenges: "Creating a smooth drag-and-drop experience that updates in real-time across all team members was a significant challenge. Implemented optimistic UI updates with server validation.",
-    techStack: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "React DnD", "Websockets"]
+    challenges: "Implementing an efficient recommendation system that provides accurate suggestions while maintaining good performance.",
+    techStack: ["Python", "Pandas", "Scikit-learn", "Flask"]
   },
   {
     id: "3",
-    title: "Social Media Analytics",
-    description: "A platform for analyzing social media performance and audience insights.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "D3.js"],
-    githubUrl: "https://github.com/",
+    title: "Chess Review",
+    description: "Analyzes chess games from Lichess or Chess.com via username input, and displays a step-by-step review of the moves with visual feedback.",
+    image: "/chess_review_output.jpg",
+    tags: ["React", "TypeScript", "TailwindCSS"],
+    githubUrl: "https://github.com/nirakar24/chess_review",
     demoUrl: "#",
     features: [
-      "Multi-platform analytics dashboard",
-      "Audience demographic analysis",
-      "Engagement tracking",
-      "Content performance metrics",
-      "Automated reporting"
+      "Fetches and parses real user match data",
+      "Lets users select and review specific matches",
+      "Provides move-by-move analysis and position breakdown",
+      "Interactive chess board visualization"
     ],
-    challenges: "Working with different APIs from various social platforms and normalizing the data for consistent visualization was complex. Created a middleware layer to standardize data formats.",
-    techStack: ["React", "Node.js", "D3.js", "Express", "Redis", "AWS Lambda"]
+    challenges: "Integrating with chess APIs and creating an intuitive interface for move analysis and game review.",
+    techStack: ["React", "TypeScript", "TailwindCSS"]
   },
   {
     id: "4",
-    title: "Personal Blog Platform",
-    description: "A modern blogging platform with markdown support and SEO optimization.",
-    image: "https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "TypeScript", "MDX"],
-    githubUrl: "https://github.com/",
+    title: "Warehouse Management System API",
+    description: "A backend API for managing warehouse inventory, order tracking, and demand forecasting.",
+    image: "/WarehouseManagement_output.webp",
+    tags: ["FastAPI", "Pandas", "PostgreSQL"],
+    githubUrl: "https://github.com/nirakar24/Warehouse_Management_System_API",
     demoUrl: "#",
     features: [
-      "Markdown/MDX content editing",
-      "SEO optimization tools",
-      "Social media preview generation",
-      "Code syntax highlighting",
-      "Reading time estimation"
+      "CSV file uploads for bulk inventory updates",
+      "Demand and reorder level prediction using ML models",
+      "Product placement suggestions",
+      "Reporting and alert system for low-stock items"
     ],
-    challenges: "Building a markdown editor with live preview that supports custom components and extensions while maintaining good performance was challenging.",
-    techStack: ["Next.js", "TypeScript", "MDX", "Tailwind CSS", "Next SEO", "Vercel"]
+    challenges: "Creating a robust backend architecture with real business use cases and data-driven automation.",
+    techStack: ["FastAPI", "Pandas", "PostgreSQL"]
   },
   {
     id: "5",
-    title: "Fitness Tracking App",
-    description: "A comprehensive fitness app for tracking workouts, nutrition, and progress.",
+    title: "PubMed LLM API",
+    description: "An LLM-powered API that scrapes PubMed articles and summarizes academic content.",
     image: "https://images.unsplash.com/photo-1534723328310-e82dad3ee43f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["React", "Node.js", "TypeScript"],
-    githubUrl: "https://github.com/",
+    tags: ["LangChain", "Python", "BeautifulSoup", "Pandas"],
+    githubUrl: "https://github.com/nirakar24/pubmed_llm_api",
     demoUrl: "#",
     features: [
-      "Workout planning and tracking",
-      "Nutrition diary and analysis",
-      "Progress visualization",
-      "Goal setting and achievement tracking",
-      "Social sharing and competitions"
+      "Keyword-based search from PubMed",
+      "Summarization using Large Language Models via LangChain",
+      "Fast API setup for RESTful access",
+      "Converts data into structured summaries"
     ],
-    challenges: "Creating accurate calorie and nutrition tracking that integrates with various exercise types required extensive research and algorithm development.",
-    techStack: ["React", "Node.js", "TypeScript", "Express", "MongoDB", "Chart.js", "React Native"]
+    challenges: "Smart fusion of AI + web scraping + real-world data science tools while maintaining accuracy and performance.",
+    techStack: ["LangChain", "Python", "BeautifulSoup", "Pandas"]
   },
   {
     id: "6",
-    title: "Weather Forecast App",
-    description: "A beautiful weather application with detailed forecasts and location search.",
-    image: "https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    tags: ["Next.js", "TypeScript", "TailwindCSS"],
-    githubUrl: "https://github.com/",
+    title: "Pixio – Image Gallery App",
+    description: "A desktop application for image manipulation and gallery management with advanced features.",
+    image: "/Pixio_output.JPG",
+    tags: ["Python", "Tkinter", "OpenCV"],
+    githubUrl: "https://github.com/nirakar24/Pixio",
     demoUrl: "#",
     features: [
-      "7-day weather forecast",
-      "Detailed hourly predictions",
-      "Location-based weather data",
-      "Weather alerts and notifications",
-      "Interactive weather maps"
+      "Image manipulation using OpenCV",
+      "User-friendly Tkinter GUI interface",
+      "Advanced image processing capabilities",
+      "Efficient image gallery management"
     ],
-    challenges: "Integrating multiple weather data sources to provide accurate forecasts while keeping the app performance fast and responsive was a significant challenge.",
-    techStack: ["Next.js", "TypeScript", "TailwindCSS", "OpenWeatherMap API", "Mapbox", "SWR"]
+    challenges: "Creating a robust desktop application with advanced image processing features while maintaining good performance.",
+    techStack: ["Python", "Tkinter", "OpenCV"]
   }
 ];
 

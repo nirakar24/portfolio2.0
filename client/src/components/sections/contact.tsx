@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser';
+
+// Initialize EmailJS with your public key
+emailjs.init("dseKnFFM1GvwvJtm_");
 
 interface FormData {
   name: string;
@@ -35,19 +39,23 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // In a real app, this would send the form data to a backend API
-      // Using EmailJS or a Next.js API route
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_name: "Nirakar",
+      };
 
-      if (response.ok) {
+      const response = await emailjs.send(
+        'service_sttlvsk', // Your service ID
+        'template_9md8fkh', // Your template ID
+        templateParams
+      );
+
+      if (response.status === 200) {
         toast({
-          title: "Message sent!",
+          title: "Message sent successfully!",
           description: "Thank you for your message. I'll get back to you soon.",
         });
         setFormData({
@@ -59,13 +67,13 @@ export default function Contact() {
       } else {
         throw new Error('Failed to send message');
       }
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: "Error sending message",
-        description: "Please try again later or contact me directly via email.",
+        description: error.message || "Please try again later or contact me directly via email.",
         variant: "destructive",
       });
-      console.error(error);
+      console.error('Error sending email:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -99,8 +107,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-sm text-gray-500 dark:text-gray-400">Email</h4>
-                      <a href="mailto:john.doe@example.com" className="text-primary hover:underline">
-                        john.doe@example.com
+                      <a href="mailto:nirakarjena249@gmail.com" className="text-primary hover:underline">
+                        nirakarjena249@gmail.com
                       </a>
                     </div>
                   </div>
@@ -111,8 +119,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-sm text-gray-500 dark:text-gray-400">LinkedIn</h4>
-                      <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                        linkedin.com/in/johndoe
+                      <a href="https://www.linkedin.com/in/nirakar-jena-ab12b518b/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                        linkedin.com/in/nirakar-jena
                       </a>
                     </div>
                   </div>
@@ -123,8 +131,8 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-sm text-gray-500 dark:text-gray-400">GitHub</h4>
-                      <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                        github.com/johndoe
+                      <a href="https://github.com/nirakar24" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                        github.com/nirakar24
                       </a>
                     </div>
                   </div>
@@ -135,7 +143,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-sm text-gray-500 dark:text-gray-400">Location</h4>
-                      <p>San Francisco, CA</p>
+                      <p>Navi Mumbai, Maharashtra, India</p>
                     </div>
                   </div>
                 </div>
@@ -144,7 +152,7 @@ export default function Contact() {
                   <h4 className="font-medium text-sm text-gray-500 dark:text-gray-400 mb-4">Connect With Me</h4>
                   <div className="flex space-x-4">
                     <a 
-                      href="https://github.com/" 
+                      href="https://github.com/nirakar24" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="bg-gray-200 dark:bg-gray-600 p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
@@ -152,7 +160,7 @@ export default function Contact() {
                       <Github className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                     </a>
                     <a 
-                      href="https://linkedin.com/" 
+                      href="https://www.linkedin.com/in/nirakar-jena-ab12b518b/" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="bg-gray-200 dark:bg-gray-600 p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
@@ -160,7 +168,7 @@ export default function Contact() {
                       <Linkedin className="h-5 w-5 text-gray-700 dark:text-gray-300" />
                     </a>
                     <a 
-                      href="mailto:john.doe@example.com"
+                      href="mailto:nirakarjena249@gmail.com"
                       className="bg-gray-200 dark:bg-gray-600 p-2 rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
                     >
                       <Mail className="h-5 w-5 text-gray-700 dark:text-gray-300" />
@@ -244,8 +252,14 @@ export default function Contact() {
                       className="w-full flex items-center justify-center"
                       disabled={isSubmitting}
                     >
-                      <span>Send Message</span>
-                      <Send className="ml-2 h-5 w-5" />
+                      {isSubmitting ? (
+                        <span>Sending...</span>
+                      ) : (
+                        <>
+                          <span>Send Message</span>
+                          <Send className="ml-2 h-5 w-5" />
+                        </>
+                      )}
                     </Button>
                   </div>
                 </form>

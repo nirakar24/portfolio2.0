@@ -17,22 +17,16 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <div className="rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-lg" style={{ width: "200px", height: "200px" }}>
-              <svg 
-                viewBox="0 0 200 200" 
-                className="w-full h-full bg-gray-300 dark:bg-gray-700"
-              >
-                <rect width="200" height="200" fill="currentColor" />
-                <text
-                  x="50%"
-                  y="50%"
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fontSize="60"
-                  fill="white"
-                >
-                  NJ
-                </text>
-              </svg>
+              <img 
+                src="/dp.jpg" 
+                alt="Nirakar Jena" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  console.error("Error loading image:", e);
+                  const target = e.target as HTMLImageElement;
+                  target.src = "/placeholder.jpg"; // Fallback image if dp.jpg fails to load
+                }}
+              />
             </div>
           </motion.div>
           

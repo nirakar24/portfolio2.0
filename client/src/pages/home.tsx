@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import { motion } from "framer-motion";
 import Hero from "@/components/sections/hero";
+import { User, FolderGit2, Code2, Mail } from "lucide-react";
 
 export default function Home() {
   const [, navigate] = useLocation();
@@ -35,25 +36,25 @@ export default function Home() {
               title: "About Me", 
               description: "Learn about my background and expertise", 
               path: "/about", 
-              iconClass: "user"
+              icon: <User className="w-8 h-8 text-primary" />
             },
             { 
               title: "Projects", 
               description: "See my previous work and accomplishments", 
               path: "/projects", 
-              iconClass: "folder"
+              icon: <FolderGit2 className="w-8 h-8 text-primary" />
             },
             { 
               title: "Skills", 
               description: "Discover my technical skillset", 
               path: "/skills", 
-              iconClass: "code"
+              icon: <Code2 className="w-8 h-8 text-primary" />
             },
             { 
               title: "Contact", 
               description: "Get in touch for opportunities", 
               path: "/contact", 
-              iconClass: "mail"
+              icon: <Mail className="w-8 h-8 text-primary" />
             }
           ].map((item, index) => (
             <motion.div 
@@ -67,7 +68,7 @@ export default function Home() {
             >
               <div className="flex justify-center mb-4">
                 <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  <i className={`text-primary text-2xl fas fa-${item.iconClass}`}></i>
+                  {item.icon}
                 </div>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-primary">{item.title}</h3>

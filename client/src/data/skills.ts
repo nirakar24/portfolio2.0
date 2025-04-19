@@ -14,12 +14,6 @@ export const skills: Skill[] = [
     color: "blue"
   },
   {
-    name: "Next.js",
-    icon: "N",
-    category: "frontend",
-    color: "gray"
-  },
-  {
     name: "TypeScript",
     icon: "TS",
     category: "frontend",
@@ -32,36 +26,42 @@ export const skills: Skill[] = [
     color: "teal"
   },
   {
-    name: "Redux",
-    icon: "Rx",
-    category: "frontend",
-    color: "purple"
-  },
-  {
     name: "HTML/CSS",
     icon: "</>",
     category: "frontend",
     color: "orange"
   },
+  {
+    name: "JavaScript",
+    icon: "JS",
+    category: "frontend",
+    color: "yellow"
+  },
+  {
+    name: "Chart.js",
+    icon: "📊",
+    category: "frontend",
+    color: "green"
+  },
 
   // Backend
   {
-    name: "Node.js",
-    icon: "N",
+    name: "Python",
+    icon: "🐍",
+    category: "backend",
+    color: "blue"
+  },
+  {
+    name: "FastAPI",
+    icon: "FA",
     category: "backend",
     color: "green"
   },
   {
-    name: "Express",
-    icon: "Ex",
+    name: "Flask",
+    icon: "F",
     category: "backend",
     color: "gray"
-  },
-  {
-    name: "MongoDB",
-    icon: "M",
-    category: "backend",
-    color: "green"
   },
   {
     name: "PostgreSQL",
@@ -70,19 +70,19 @@ export const skills: Skill[] = [
     color: "blue"
   },
   {
-    name: "Firebase",
-    icon: "FB",
+    name: "Pandas",
+    icon: "PD",
     category: "backend",
-    color: "yellow"
+    color: "purple"
   },
   {
-    name: "GraphQL",
-    icon: "GQL",
+    name: "Scikit-learn",
+    icon: "SK",
     category: "backend",
-    color: "pink"
+    color: "orange"
   },
 
-  // Tools
+  // Tools & Others
   {
     name: "Git",
     icon: "Git",
@@ -90,35 +90,35 @@ export const skills: Skill[] = [
     color: "red"
   },
   {
-    name: "Docker",
-    icon: "🐳",
-    category: "tools",
-    color: "blue"
-  },
-  {
-    name: "AWS",
-    icon: "AWS",
-    category: "tools",
-    color: "yellow"
-  },
-  {
-    name: "CI/CD",
-    icon: "CI",
+    name: "BeautifulSoup",
+    icon: "BS",
     category: "tools",
     color: "green"
   },
   {
-    name: "Jest",
-    icon: "Jest",
+    name: "LangChain",
+    icon: "LC",
     category: "tools",
-    color: "red"
+    color: "blue"
   },
   {
-    name: "Figma",
-    icon: "F",
+    name: "Vercel",
+    icon: "V",
+    category: "tools",
+    color: "black"
+  },
+  {
+    name: "JSON",
+    icon: "{}",
+    category: "tools",
+    color: "yellow"
+  },
+  {
+    name: "Machine Learning",
+    icon: "🤖",
     category: "tools",
     color: "purple"
-  },
+  }
 ];
 
 export const getSkillsByCategory = (category: string) => {
