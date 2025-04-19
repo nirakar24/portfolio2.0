@@ -7,13 +7,9 @@ import { resumeData } from "@/data/resume";
 
 export default function Resume() {
   const handleDownload = () => {
-    // Create a link element
-    const link = document.createElement('a');
-    link.href = '/Resume_neo.pdf';
-    link.download = 'Nirakar_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Google Docs link that forces PDF export
+    const googleDocsUrl = "https://docs.google.com/document/d/1UX-PhHQLdQh0S10-ZUknPgfI1g7pBMfH5QRi2zZZF0E/export?format=pdf";
+    window.open(googleDocsUrl, '_blank');
   };
 
   return (
@@ -35,13 +31,23 @@ export default function Resume() {
           <CardHeader className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600 p-6">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-bold">{resumeData.name} - {resumeData.title}</h3>
-              <Button 
-                className="flex items-center gap-2"
-                onClick={handleDownload}
-              >
-                <Download className="h-4 w-4" />
-                Download PDF
-              </Button>
+              <div className="flex gap-4">
+                <Button 
+                  className="flex items-center gap-2"
+                  onClick={handleDownload}
+                  variant="default"
+                >
+                  <Download className="h-4 w-4" />
+                  Download PDF
+                </Button>
+                <Button
+                  className="flex items-center gap-2"
+                  variant="outline"
+                  onClick={() => window.open("https://docs.google.com/document/d/1UX-PhHQLdQh0S10-ZUknPgfI1g7pBMfH5QRi2zZZF0E/edit?usp=sharing", "_blank")}
+                >
+                  View in Google Docs
+                </Button>
+              </div>
             </div>
             <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
               <a href={`mailto:${resumeData.email}`} className="flex items-center gap-1 hover:text-primary">
