@@ -11,7 +11,7 @@ interface HeroProps {
 export default function Hero({ onViewProjects, onContact }: HeroProps) {
   const [typedText, setTypedText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
-  const fullText = "Full Stack Developer specializing in modern web technologies";
+  const fullText = "Software Developer specializing in Python, Java, and web technologies";
 
   // Text typing animation effect
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
   };
   
   // Letter animation for name
-  const nameArray = "Hi, I'm John Doe".split("");
+  const nameArray = "Hi, I'm Nirakar Jena".split("");
   const nameVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -140,7 +140,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
               <motion.span
                 key={index}
                 variants={letterVariants}
-                className={letter === 'J' || letter === 'o' || letter === 'h' || letter === 'n' || letter === 'D' || letter === 'e' ? 
+                className={letter === 'N' || letter === 'i' || letter === 'r' || letter === 'a' || letter === 'k' || letter === 'a' || letter === 'r' || letter === 'J' || letter === 'e' || letter === 'n' || letter === 'a' ? 
                   "inline-block text-primary" : "inline-block"}
               >
                 {letter === ' ' ? '\u00A0' : letter}
@@ -209,7 +209,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
           {[
             { icon: <Github size={24} />, href: "https://github.com/", label: "GitHub" },
             { icon: <Linkedin size={24} />, href: "https://linkedin.com/", label: "LinkedIn" },
-            { icon: <Mail size={24} />, href: "mailto:john.doe@example.com", label: "Email" }
+            { icon: <Mail size={24} />, href: "mailto:nirakarjena249@gmail.com", label: "Email" }
           ].map((social, index) => (
             <motion.a 
               key={index}

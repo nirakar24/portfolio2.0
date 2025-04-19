@@ -30,7 +30,7 @@ export default function About() {
                   fontSize="60"
                   fill="white"
                 >
-                  JD
+                  NJ
                 </text>
               </svg>
             </div>
@@ -44,13 +44,13 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-lg mb-4">
-              I'm a full-stack developer with a passion for creating elegant, user-friendly web applications. With 5+ years of experience in the tech industry, I specialize in modern JavaScript frameworks and backend technologies.
+              I'm a software developer with expertise in Python, Java, web development, and cloud technologies. I'm passionate about building scalable web applications, APIs, and implementing machine learning models.
             </p>
             <p className="text-lg mb-4">
-              My journey in software development began at the University of Technology where I earned my Bachelor's degree in Computer Science. Since then, I've worked with various startups and established companies, contributing to projects that have impacted thousands of users.
+              I'm currently pursuing a Bachelor of Engineering in Artificial Intelligence and Data Science at Datta Meghe College of Engineering, Navi Mumbai, where I've been developing my skills in various programming languages and frameworks.
             </p>
             <p className="text-lg mb-6">
-              When I'm not coding, you can find me hiking in the mountains, reading sci-fi novels, or experimenting with new recipes in the kitchen.
+              As a freelance web developer, I've collaborated with clients to understand their business requirements and delivered high-quality, scalable solutions. When I'm not coding, I enjoy exploring food, astronomy, technology, and playing video games.
             </p>
             
             <div className="grid grid-cols-2 gap-4 mt-8">
@@ -60,15 +60,15 @@ export default function About() {
                   <ul className="space-y-2">
                     <li className="flex items-center">
                       <MapPin className="mr-2 h-4 w-4 text-primary" />
-                      San Francisco, CA
+                      Navi Mumbai, Maharashtra
                     </li>
                     <li className="flex items-center">
                       <GraduationCap className="mr-2 h-4 w-4 text-primary" />
-                      B.S. Computer Science
+                      B.E. in AI & Data Science (Ongoing)
                     </li>
                     <li className="flex items-center">
                       <Briefcase className="mr-2 h-4 w-4 text-primary" />
-                      5+ Years Experience
+                      Freelance Web Developer (2023-2024)
                     </li>
                   </ul>
                 </CardContent>

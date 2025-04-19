@@ -30,8 +30,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full backdrop-blur-sm bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold flex items-center space-x-2">
-          <span className="text-primary">John</span>
-          <span className="dark:text-white">Doe</span>
+          <span className="text-primary">Nirakar</span>
+          <span className="dark:text-white">Jena</span>
         </Link>
 
         {/* Mobile Menu Button */}
