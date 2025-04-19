@@ -143,7 +143,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="font-medium text-sm text-gray-500 dark:text-gray-400">Location</h4>
-                      <p>Navi Mumbai, Maharashtra, India</p>
+                      <p>Mumbai, Maharashtra, India</p>
                     </div>
                   </div>
                 </div>
