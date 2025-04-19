@@ -9,8 +9,8 @@ import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS with your public key
-emailjs.init("dseKnFFM1GvwvJtm_");
+// Initialize EmailJS with your public key from environment variable
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 interface FormData {
   name: string;
@@ -48,8 +48,8 @@ export default function Contact() {
       };
 
       const response = await emailjs.send(
-        'service_sttlvsk', // Your service ID
-        'template_9md8fkh', // Your template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams
       );
 
