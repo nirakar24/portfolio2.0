@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Resume from "@/components/sections/resume";
 import PageHero from "../components/sections/page-hero";
+import { FileText, Download } from "lucide-react";
 
 export default function ResumePage() {
   return (

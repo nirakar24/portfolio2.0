@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card"; 
 import { Button } from "@/components/ui/button";
-import { Download, Briefcase, GraduationCap, Award, Check, Mail, Github, Linkedin, Star } from "lucide-react";
+import { Download, Briefcase, GraduationCap, Award, Check, Mail, Github, Linkedin, Star, FileText } from "lucide-react";
 import { resumeData } from "@/data/resume";
 
 export default function Resume() {
@@ -31,24 +31,24 @@ export default function Resume() {
           <CardHeader className="bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600 p-6">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-4">
               <h3 className="text-xl font-bold">{resumeData.name} - {resumeData.title}</h3>
-              <div className="flex flex-wrap gap-2">
-                <Button 
-                  className="flex items-center gap-2 text-sm"
-                  onClick={handleDownload}
-                  variant="default"
-                  size="sm"
+              <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                <a
+                  href="/Resume_Neo_2.pdf"
+                  download
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
-                  <Download className="h-4 w-4" />
+                  <Download className="w-5 h-5" />
                   Download PDF
-                </Button>
-                <Button
-                  className="flex items-center gap-2 text-sm"
-                  variant="outline"
-                  size="sm"
-                  onClick={() => window.open("https://docs.google.com/document/d/1UX-PhHQLdQh0S10-ZUknPgfI1g7pBMfH5QRi2zZZF0E/edit?usp=sharing", "_blank")}
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/1_DCuaxJLeBsDyXmgPidMqmTRka0mJIkY/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
                 >
-                  View in Google Docs
-                </Button>
+                  <FileText className="w-5 h-5" />
+                  View in Drive
+                </a>
               </div>
             </div>
             <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
@@ -87,11 +87,11 @@ export default function Resume() {
                   <div key={index} className={`border-l-2 ${index === 0 ? 'border-primary' : 'border-gray-300 dark:border-gray-600'} pl-4`}>
                     <h5 className="font-semibold">{exp.title}</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-300">{exp.company} | {exp.period}</p>
-                    <ul className="mt-2 list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
+                  <ul className="mt-2 list-disc list-inside text-sm space-y-1 text-gray-700 dark:text-gray-300">
                       {exp.description.map((desc, i) => (
                         <li key={i}>{desc}</li>
                       ))}
-                    </ul>
+                  </ul>
                   </div>
                 ))}
               </div>
@@ -168,10 +168,10 @@ export default function Resume() {
                   <div key={index} className={`border-l-2 ${index === 0 ? 'border-primary' : 'border-gray-300 dark:border-gray-600'} pl-4`}>
                     <h5 className="font-semibold">{edu.degree}</h5>
                     <p className="text-sm text-gray-600 dark:text-gray-300">{edu.institution} | {edu.period}</p>
-                    <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
                       {edu.description}
-                    </p>
-                  </div>
+                  </p>
+                </div>
                 ))}
               </div>
             </div>
