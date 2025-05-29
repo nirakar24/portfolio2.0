@@ -31,12 +31,14 @@ export default function Footer() {
             >
               Projects
             </Link>
-            <Link 
-              href="/resume" 
-              className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+            <a
+              href="https://drive.google.com/file/d/1_DCuaxJLeBsDyXmgPidMqmTRka0mJIkY/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary transition-colors"
             >
               Resume
-            </Link>
+            </a>
             <Link 
               href="/contact" 
               className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"

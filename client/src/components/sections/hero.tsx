@@ -213,7 +213,7 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
           variants={itemVariants}
         >
           <TooltipProvider>
-            {[
+          {[
               { 
                 icon: <Github size={24} />, 
                 href: "https://github.com/nirakar24", 
@@ -232,31 +232,31 @@ export default function Hero({ onViewProjects, onContact }: HeroProps) {
                 label: "Email",
                 tooltip: "Send me an email"
               }
-            ].map((social, index) => (
+          ].map((social, index) => (
               <Tooltip key={index}>
                 <TooltipTrigger asChild>
-                  <motion.a 
-                    href={social.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    aria-label={social.label}
-                    className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all"
-                    whileHover={{ scale: 1.25 }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ 
-                      opacity: 1, 
-                      y: 0,
-                      transition: { delay: 0.8 + (index * 0.1) } 
-                    }}
-                  >
-                    {social.icon}
-                  </motion.a>
+            <motion.a 
+              href={social.href} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              aria-label={social.label}
+              className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all"
+              whileHover={{ scale: 1.25 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ 
+                opacity: 1, 
+                y: 0,
+                transition: { delay: 0.8 + (index * 0.1) } 
+              }}
+            >
+              {social.icon}
+            </motion.a>
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{social.tooltip}</p>
                 </TooltipContent>
               </Tooltip>
-            ))}
+          ))}
           </TooltipProvider>
         </motion.div>
       </motion.div>

@@ -145,7 +145,7 @@ export default function Projects() {
                         <Eye className="w-4 h-4" />
                         View Details
                       </Button>
-                    </div>
+                </div>
                   </div>
                   <div className="p-4 sm:p-5">
                     <h3 className="text-lg sm:text-xl font-semibold mb-2">{project.title}</h3>
@@ -166,24 +166,24 @@ export default function Projects() {
                     <div className="flex items-center gap-2 flex-wrap">
                       {project.githubUrl && (
                         <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
-                        >
-                          <Github className="h-4 w-4" />
+                    >
+                      <Github className="h-4 w-4" />
                           Source Code
                         </a>
                       )}
                       {project.demoUrl && (
                         <a
-                          href={project.demoUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                           className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"
-                        >
-                          <ExternalLink className="h-4 w-4" />
-                          Live Demo
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Live Demo
                         </a>
                       )}
                     </div>

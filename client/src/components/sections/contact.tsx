@@ -256,8 +256,8 @@ export default function Contact() {
                         <span>Sending...</span>
                       ) : (
                         <>
-                          <span>Send Message</span>
-                          <Send className="ml-2 h-5 w-5" />
+                      <span>Send Message</span>
+                      <Send className="ml-2 h-5 w-5" />
                         </>
                       )}
                     </Button>
