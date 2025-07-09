@@ -8,7 +8,8 @@ import { resumeData } from "@/data/resume";
 export default function Resume() {
   const handleDownload = () => {
     // Google Docs link that forces PDF export
-    const googleDocsUrl = "https://docs.google.com/document/d/1UX-PhHQLdQh0S10-ZUknPgfI1g7pBMfH5QRi2zZZF0E/export?format=pdf";
+    // const googleDocsUrl = "https://docs.google.com/document/d/1UX-PhHQLdQh0S10-ZUknPgfI1g7pBMfH5QRi2zZZF0E/export?format=pdf";
+    const googleDocsUrl = "https://drive.google.com/file/d/17ICjNY6_zt33YlyKAwDoEu5cyCB3_iTK/export?format=pdf";
     window.open(googleDocsUrl, '_blank');
   };
 
@@ -41,7 +42,7 @@ export default function Resume() {
                   Download PDF
                 </a>
                 <a
-                  href="https://drive.google.com/file/d/1_DCuaxJLeBsDyXmgPidMqmTRka0mJIkY/view?usp=sharing"
+                  href="https://drive.google.com/file/d/17ICjNY6_zt33YlyKAwDoEu5cyCB3_iTK/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
