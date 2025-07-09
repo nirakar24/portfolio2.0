@@ -34,7 +34,7 @@ export default function Resume() {
               <h3 className="text-xl font-bold">{resumeData.name} - {resumeData.title}</h3>
               <div className="flex flex-col sm:flex-row gap-4 mt-4">
                 <a
-                  href="/Resume_Neo_2.pdf"
+                  href="/Nirakar_Jena_Resume.pdf"
                   download
                   className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
